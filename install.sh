@@ -79,6 +79,12 @@ sudo pacman -Syu --noconfirm
 
 # Reboot
 show_logo laseretch 920
-show_subtext "You're done! So we'll be rebooting now..."
-sleep 2
-reboot
+if [ -z "$OMARCHY_REBOOT" ]; then
+  show_subtext "You're done! So we'll be rebooting now..."
+  sleep 2
+  reboot
+else
+  show_subtext "You're done! So we'll exit now..."
+  sleep 2
+  exit 0
+fi
